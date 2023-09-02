@@ -43,3 +43,27 @@ add_test(
     COMMAND dict_test
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 ]]
+
+add_library(dict_shared SHARED ${LIBDICT_SOURCES})
+
+set(PUBLIC_HEADERS
+    include/dict.h
+    include/hashtable.h
+    include/hashtable2.h
+    include/hb_tree.h
+    include/pr_tree.h
+    include/rb_tree.h
+    include/skiplist.h
+    include/sp_tree.h
+    include/tr_tree.h
+    include/wb_tree.h
+)
+
+set_target_properties(dict_shared PROPERTIES
+    PUBLIC_HEADER "${PUBLIC_HEADERS}"
+)
+
+install(TARGETS dict_shared
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    PUBLIC_HEADER DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
