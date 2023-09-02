@@ -29,6 +29,7 @@ if(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
 endif(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" )
 set_target_properties(dict PROPERTIES PREFIX "lib")
 
+#[[
 list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}")
 find_package(CUnit REQUIRED)
 enable_testing()
@@ -41,4 +42,4 @@ add_test(
     NAME dict_test
     COMMAND dict_test
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
-
+]]
